@@ -81,3 +81,9 @@ uip.uvgui.peng
 *.peng
 uip.uvgui.peng
 *.peng
+*.lst
+*.__i
+output/uip
+*.htm
+output/uip.lnp
+output/uip.m51

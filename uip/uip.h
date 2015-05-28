@@ -535,7 +535,7 @@ struct uip_conn *uip_connect(uip_ipaddr_t *ripaddr, u16_t port);
  *
  * \hideinitializer
  */
-void uip_send(const void *data, int len);
+void uip_send(const void *DATA, int len);
 
 /**
  * The length of any incoming data that is currently avaliable (if avaliable)
@@ -1177,7 +1177,7 @@ struct uip_conn {
 			 segment sent. */
 
   /** The application state. */
-  uip_tcp_appstate_t appstate;
+  //uip_tcp_appstate_t appstate;  //×¢ÊÍµô·ÀÖ¹±¨´í  
 };
 
 

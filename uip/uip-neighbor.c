@@ -40,7 +40,7 @@
  */
 
 #include "uip-neighbor.h"
-
+#include <stdio.h>      //增加标准输入输出库，使用printf函数
 #include <string.h>
 
 #define MAX_TIME 128

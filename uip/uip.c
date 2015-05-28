@@ -1,4 +1,4 @@
-#define DEBUG_PRINTF(...) /*printf(__VA_ARGS__)*/
+#define DEBUG_PRINTF printf/*(...) printf(__VA_ARGS__)*/
 
 /**
  * \defgroup uip The uIP TCP/IP stack
@@ -277,14 +277,14 @@ uip_add32(u8_t *op32, u16_t op16)
 #if ! UIP_ARCH_CHKSUM
 /*---------------------------------------------------------------------------*/
 static u16_t
-chksum(u16_t sum, const u8_t *data, u16_t len)
+chksum(u16_t sum, const u8_t *DATA, u16_t len)
 {
   u16_t t;
   const u8_t *dataptr;
   const u8_t *last_byte;
 
-  dataptr = data;
-  last_byte = data + len - 1;
+  dataptr = DATA;
+  last_byte = DATA + len - 1;
   
   while(dataptr < last_byte) {	/* At least two more bytes */
     t = (dataptr[0] << 8) + dataptr[1];
@@ -308,9 +308,9 @@ chksum(u16_t sum, const u8_t *data, u16_t len)
 }
 /*---------------------------------------------------------------------------*/
 u16_t
-uip_chksum(u16_t *data, u16_t len)
+uip_chksum(u16_t *DATA, u16_t len)
 {
-  return htons(chksum(0, (u8_t *)data, len));
+  return htons(chksum(0, (u8_t *)DATA, len));
 }
 /*---------------------------------------------------------------------------*/
 #ifndef UIP_ARCH_IPCHKSUM
@@ -1885,12 +1885,12 @@ htons(u16_t val)
 }
 /*---------------------------------------------------------------------------*/
 void
-uip_send(const void *data, int len)
+uip_send(const void *DATA, int len)
 {
   if(len > 0) {
     uip_slen = len;
-    if(data != uip_sappdata) {
-      memcpy(uip_sappdata, (data), uip_slen);
+    if(DATA != uip_sappdata) {
+      memcpy(uip_sappdata, (DATA), uip_slen);
     }
   }
 }

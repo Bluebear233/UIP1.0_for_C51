@@ -39,7 +39,7 @@
 #include "uip.h"
 #include "uip_arp.h"
 #include "tapdev.h"
-
+#include <stdio.h>  //增加标准输入输出库，使用printf函数
 #include "timer.h"
 
 #define BUF ((struct uip_eth_hdr *)&uip_buf[0])
@@ -69,7 +69,7 @@ main(void)
   uip_ipaddr(ipaddr, 255,255,255,0);
   uip_setnetmask(ipaddr);
 
-  httpd_init();
+  /* httpd_init(); */  //注释防止报错
   
   /*  telnetd_init();*/
   
@@ -186,9 +186,9 @@ dhcpc_configured(const struct dhcpc_state *s)
 }
 #endif /* __DHCPC_H__ */
 void
-smtp_done(unsigned char code)
+smtp_done(unsigned char CODE)
 {
-  printf("SMTP done with code %d\n", code);
+  printf("SMTP done with code %d\n", CODE);
 }
 void
 webclient_closed(void)
@@ -211,7 +211,7 @@ webclient_connected(void)
   printf("Webclient: connected, waiting for data...\n");
 }
 void
-webclient_datahandler(char *data, u16_t len)
+webclient_datahandler(char *DATA, u16_t len)
 {
   printf("Webclient: got %d bytes of data.\n", len);
 }
