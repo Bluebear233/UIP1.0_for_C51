@@ -39,7 +39,8 @@
  */
 
 #include "clock-arch.h"
-//#include <sys/time.h>
+#include "tim0.h"
+//#include <sys/time.h> //×¢ÊÍ·ÀÖ¹±àÒë³ö´í
 
 /*---------------------------------------------------------------------------*/
 clock_time_t
@@ -51,5 +52,6 @@ clock_time(void)
   gettimeofday(&tv, &tz);
 
   return tv.tv_sec * 1000 + tv.tv_usec / 1000; */
+	return tick_cnt;
 }
 /*---------------------------------------------------------------------------*/

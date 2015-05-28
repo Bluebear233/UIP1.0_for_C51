@@ -251,8 +251,8 @@ void enc28j60Write(u8_t address, u8_t mydat);
 u16_t enc28j60_read_phyreg(u8_t address);
 void enc28j60PhyWrite(u8_t address, u16_t mydat);
 void enc28j60_init(void);
-void dev_init(void);
-u16_t dev_poll(void);
-void dev_send(void);
+void tapdev_init(void);
+u16_t tapdev_read(void);
+void tapdev_send(void);
 
 #endif

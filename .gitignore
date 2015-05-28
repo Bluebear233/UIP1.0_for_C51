@@ -87,3 +87,7 @@ output/uip
 *.htm
 output/uip.lnp
 output/uip.m51
+*.uvopt
+uip.uvopt
+uip.uvproj
+*.uvopt

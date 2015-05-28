@@ -1,7 +1,5 @@
 #include "enc28j60.h"
 #include "spi.h"
-//#include "main.h"
-//#include "mcu_uart.h"
 
 //u8_t digit[4];
 //union FLAG1 flag1;
@@ -351,17 +349,17 @@ u16_t enc28j60PacketReceive(u16_t maxlen, u8_t* packet)
     return len;
 }
 
-void dev_init(void)
+void tapdev_init(void)
 {
     enc28j60_init();
 }
 
-void dev_send(void)
+void tapdev_send(void)
 {
     enc28j60PacketSend(uip_len, uip_buf);
 }
 
-u16_t dev_poll(void)
+u16_t tapdev_read(void)
 {
     return enc28j60PacketReceive(UIP_BUFSIZE, uip_buf);
 }
