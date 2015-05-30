@@ -156,7 +156,7 @@
  *
  * This should normally not be changed.
  */
-#define UIP_TTL         64
+#define UIP_TTL         255
 
 /**
  * Turn on support for IP packet reassembly.
@@ -394,7 +394,7 @@
  * \hideinitializer
  */
 #ifndef UIP_CONF_BUFFER_SIZE
-#define UIP_BUFSIZE     400
+#define UIP_BUFSIZE     800 /*≤ª…Ÿ”⁄421,800 ok*/
 #else /* UIP_CONF_BUFFER_SIZE */
 #define UIP_BUFSIZE UIP_CONF_BUFFER_SIZE
 #endif /* UIP_CONF_BUFFER_SIZE */
