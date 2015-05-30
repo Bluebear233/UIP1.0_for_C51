@@ -82,7 +82,7 @@ main(void)
     {
       u8_t mac[6] = {UIP_ETHADDR0,UIP_ETHADDR1,UIP_ETHADDR2,UIP_ETHADDR3,UIP_ETHADDR4,UIP_ETHADDR5};
       dhcpc_init(&mac, 6);
-	  dhcpc_request();
+	  dhcpc_request();/* 需要加上，制作request包 */
       }
   
   /*uip_ipaddr(ipaddr, 127,0,0,1);
