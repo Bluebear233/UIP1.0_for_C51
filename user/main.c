@@ -65,7 +65,7 @@ main(void)
   timer_set(&arp_timer, CLOCK_SECOND * 10);
   
   uip_init();
-
+/*
   uip_ipaddr(ipaddr, 192,168,1,9);
   uip_sethostaddr(ipaddr);
   uip_ipaddr(ipaddr, 192,168,1,1);
@@ -79,10 +79,11 @@ main(void)
   
   /*  hello_world_init();*/
 
-  /*  {
-      u8_t mac[6] = {1,2,3,4,5,6};
+    {
+      u8_t mac[6] = {UIP_ETHADDR0,UIP_ETHADDR1,UIP_ETHADDR2,UIP_ETHADDR3,UIP_ETHADDR4,UIP_ETHADDR5};
       dhcpc_init(&mac, 6);
-      }*/
+	  dhcpc_request();
+      }
   
   /*uip_ipaddr(ipaddr, 127,0,0,1);
   smtp_configure("localhost", ipaddr);
@@ -186,7 +187,7 @@ dhcpc_configured(const struct dhcpc_state *s)
   uip_sethostaddr(s->ipaddr);
   uip_setnetmask(s->netmask);
   uip_setdraddr(s->default_router);
-  resolv_conf(s->dnsaddr);
+  //resolv_conf(s->dnsaddr);
 }
 #endif /* __DHCPC_H__ */
 void

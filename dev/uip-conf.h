@@ -104,7 +104,7 @@ typedef unsigned short uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_CONF_BUFFER_SIZE     420
+#define UIP_CONF_BUFFER_SIZE     800
 
 /**
  * CPU byte order.
@@ -125,7 +125,7 @@ typedef unsigned short uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_CONF_UDP             0
+#define UIP_CONF_UDP             1
 
 /**
  * UDP checksums on or off
@@ -147,7 +147,7 @@ typedef unsigned short uip_stats_t;
 /*#include "hello-world.h"*/
 /*#include "telnetd.h"*/
 //#include "webserver.h"
-/*#include "dhcpc.h"*/
+#include "dhcpc.h"
 /*#include "resolv.h"*/
 /*#include "webclient.h"*/
 
