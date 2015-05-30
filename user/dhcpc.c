@@ -43,7 +43,7 @@
 #define STATE_SENDING         1
 #define STATE_OFFER_RECEIVED  2
 #define STATE_CONFIG_RECEIVED 3
-
+u8_t sname[] = "luzhipeng_network";
 static struct dhcpc_state s;
 
 struct dhcp_msg {
@@ -164,6 +164,16 @@ create_msg(register struct dhcp_msg *m)
   memcpy(m->options, magic_cookie, sizeof(magic_cookie));
 }
 /*---------------------------------------------------------------------------*/
+static u8_t *
+add_msg_str(u8_t *optptr, u8_t* dat,size_t len)
+{
+  *optptr++ = 0x0c;
+  *optptr++ = len;
+	memcpy(optptr,dat,len);
+  optptr += len;
+  return optptr;
+}
+/*---------------------------------------------------------------------------*/
 static void
 send_discover(void)
 {
@@ -174,6 +184,7 @@ send_discover(void)
 
   end = add_msg_type(&m->options[4], DHCPDISCOVER);
   end = add_req_options(end);
+	end = add_msg_str(end,sname,sizeof(sname));
   end = add_end(end);
 
   uip_send(uip_appdata, end - (u8_t *)uip_appdata);
@@ -190,6 +201,7 @@ send_request(void)
   end = add_msg_type(&m->options[4], DHCPREQUEST);
   end = add_server_id(end);
   end = add_req_ipaddr(end);
+	end = add_msg_str(end,sname,sizeof(sname));
   end = add_end(end);
   
   uip_send(uip_appdata, end - (u8_t *)uip_appdata);
