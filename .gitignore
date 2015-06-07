@@ -91,3 +91,5 @@ output/uip.m51
 uip.uvopt
 uip.uvproj
 *.uvopt
+output/uip.map
+*.SBR

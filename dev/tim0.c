@@ -5,7 +5,7 @@
 #include <reg52.h>
 #include "clock-arch.h"
 #include "tim0.h"
-
+sfr AUXR        =   0x8E;
 /* 定时器0用来做TCP连接计时和ARP更新使用 */
 clock_time_t tick_cnt = 0;
 
