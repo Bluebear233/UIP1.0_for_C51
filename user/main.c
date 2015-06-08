@@ -43,6 +43,7 @@
 #include <stdio.h>  //增加标准输入输出库，使用printf函数
 #include "timer.h"
 #include "tim0.h"
+#include "spi.h"
 #define BUF ((struct uip_eth_hdr *)&uip_buf[0])
 
 #ifndef NULL
@@ -57,6 +58,7 @@ main(void)
   uip_ipaddr_t ipaddr;
   struct timer periodic_timer, arp_timer;
 
+	IntSpi();
 	InitUart();
 	Init_Tim0();
 	tapdev_init();
