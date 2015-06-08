@@ -94,9 +94,9 @@ main(void)
 	    "Test message sent by uIP\r\n");*/
 
   /*
-    webclient_init();
+    webclient_init();*/
     resolv_init();
-    uip_ipaddr(ipaddr, 195,54,122,204);
+    /*uip_ipaddr(ipaddr, 195,54,122,204);
     resolv_conf(ipaddr);
     resolv_query("www.sics.se");*/
 
@@ -189,7 +189,8 @@ dhcpc_configured(const struct dhcpc_state *s)
   uip_sethostaddr(s->ipaddr);
   uip_setnetmask(s->netmask);
   uip_setdraddr(s->default_router);
-  //resolv_conf(s->dnsaddr);
+  resolv_conf(s->dnsaddr);
+	resolv_query("www.qq.com");
 }
 #endif /* __DHCPC_H__ */
 void

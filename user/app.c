@@ -1,5 +1,6 @@
 #include "uip.h"
 #icnlude "dhcp.h"
+#include "resolv.h"
 /* UDP应用层  */
 void UIP_UDP_APPCALL(){
 	/* 远程连接端口 */
@@ -8,8 +9,11 @@ void UIP_UDP_APPCALL(){
 		case HTONS(67):
 			dhcpc_appcall();
 			break;
-	    default: 
-	       break;
+		case HTONS(53):
+			resolv_appcall();
+			break;
+	  default: 
+	    break;
 	}
 	/* 本地连接端口 */
 	switch(uip_udp_conn->lport)	
